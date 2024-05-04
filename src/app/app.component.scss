@@ -1,0 +1,16 @@
+.menu-item .sub-menu {
+    display: none;
+  }
+  
+  .menu-item .sub-menu.show {
+    display: block;
+  }
+  
+  .has-arrow .submenu-arrow {
+    transition: transform 0.3s;
+  }
+  
+  .menu-item .sub-menu.show + .has-arrow .submenu-arrow {
+    transform: rotate(180deg);
+  }
+  
