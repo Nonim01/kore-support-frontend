@@ -244,38 +244,54 @@ function ChartColorChangeSparkLine(t, n, a) {
     Waves.init();
 })(jQuery);
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var menuItems = document.querySelectorAll(".menu-item");
 
-  menuItems.forEach(function(menuItem) {
+  menuItems.forEach(function (menuItem) {
     var toggleSubmenu = menuItem.querySelector(".has-arrow");
     var subMenu = menuItem.querySelector(".sub-menu");
 
-    toggleSubmenu.addEventListener("click", function() {
+    toggleSubmenu.addEventListener("click", function () {
       subMenu.classList.toggle("show");
       toggleSubmenu.classList.toggle("submenu-open");
     });
   });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  var button = document.querySelector('.header-item');
+document.addEventListener("DOMContentLoaded", function () {
+  var button = document.querySelector(".header-item");
+  var menu = document.querySelector(".vertical-menu");
 
-  button.addEventListener('click', function() {
-      toggleMargin();
+  button.addEventListener("click", function () {
+    if (menu.style.display === "none" || menu.style.display === "") {
+      menu.style.display = "block";
+      setTimeout(function () {
+        menu.style.opacity = "1";
+      }, 10); // Small delay to ensure transition effect is applied
+    } else {
+      menu.style.opacity = "0";
+      setTimeout(function () {
+        menu.style.display = "none";
+      }, 300); // Wait for the transition to complete before hiding the menu
+    }
   });
 });
 
 function toggleMargin() {
-  var mainContent = document.querySelector('.main-content');
-  var currentMargin = window.getComputedStyle(mainContent).getPropertyValue('margin-left');
-  var menu = document.querySelector('.vertical-menu');
+  var mainContent = document.querySelector(".main-content");
+  var currentMargin = window
+    .getComputedStyle(mainContent)
+    .getPropertyValue("margin-left");
+  var menu = document.querySelector(".vertical-menu");
 
-  if (currentMargin === '240px') {
-      mainContent.style.marginLeft = '0';
-      menu.style.display = 'none'; // Hide the side panel when removing the margin
+  if (currentMargin === "240px") {
+    mainContent.style.marginLeft = "0";
+    // Hide the menu
+    menu.style.opacity = "0";
+    setTimeout(function () {
+      menu.style.display = "none";
+    }, 300);
   } else {
-      mainContent.style.marginLeft = '240px';
-      menu.style.display = 'block'; // Show the side panel when applying the margin
+    mainContent.style.marginLeft = "240px";
   }
 }

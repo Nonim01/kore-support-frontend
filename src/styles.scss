@@ -1,3 +1,12 @@
 .main-content {
     transition: margin-left 0.3s ease; /* Add transition for smooth effect */
 }
+.vertical-menu {
+    transition: opacity 0.3s ease; /* Add transition for fade effect */
+    display: none; /* Hide the side panel by default */
+}
+@media only screen and (max-width: 767px) {
+    .vertical-menu.show {
+        display: block !important; /* Ensure the side panel is shown on mobile screens */
+    }
+}
