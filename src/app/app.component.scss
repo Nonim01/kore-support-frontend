@@ -14,3 +14,7 @@
     transform: rotate(180deg);
   }
   
+  .vertical-menu {
+    display: block;
+    transition: all 0.3s ease; /* Smooth transition for all properties over 0.3 seconds */
+}

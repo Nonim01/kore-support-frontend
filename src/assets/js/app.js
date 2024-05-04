@@ -257,3 +257,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var button = document.querySelector('.header-item');
+
+  button.addEventListener('click', function() {
+      toggleMargin();
+  });
+});
+
+function toggleMargin() {
+  var mainContent = document.querySelector('.main-content');
+  var currentMargin = window.getComputedStyle(mainContent).getPropertyValue('margin-left');
+  var menu = document.querySelector('.vertical-menu');
+
+  if (currentMargin === '240px') {
+      mainContent.style.marginLeft = '0';
+      menu.style.display = 'none'; // Hide the side panel when removing the margin
+  } else {
+      mainContent.style.marginLeft = '240px';
+      menu.style.display = 'block'; // Show the side panel when applying the margin
+  }
+}
