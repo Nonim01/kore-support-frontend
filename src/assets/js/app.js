@@ -262,6 +262,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var button = document.querySelector(".header-item");
   var menu = document.querySelector(".vertical-menu");
 
+  if (window.innerWidth < 768) {
+    menu.style.display = "none"; // Hide the menu initially on mobile screens
+  }
+
   button.addEventListener("click", function () {
     if (menu.style.display === "none" || menu.style.display === "") {
       menu.style.display = "block";
@@ -295,3 +299,4 @@ function toggleMargin() {
     mainContent.style.marginLeft = "240px";
   }
 }
+
