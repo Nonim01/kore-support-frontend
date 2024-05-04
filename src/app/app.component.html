@@ -1268,19 +1268,3 @@
 
   <!-- JAVASCRIPT -->
 </body>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-  var menuItems = document.querySelectorAll(".menu-item");
-
-  menuItems.forEach(function(menuItem) {
-    var toggleSubmenu = menuItem.querySelector(".has-arrow");
-    var subMenu = menuItem.querySelector(".sub-menu");
-
-    toggleSubmenu.addEventListener("click", function() {
-      subMenu.classList.toggle("show");
-      toggleSubmenu.classList.toggle("submenu-open");
-    });
-  });
-});
-</script>
